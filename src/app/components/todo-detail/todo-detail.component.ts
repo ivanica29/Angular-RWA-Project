@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Todo} from '../models/todo';
-import {TodoService} from '../services/todo.service';
+import {Todo} from '../../models/todo';
+import {TodoService} from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo-detail',
@@ -15,7 +15,6 @@ export class TodoDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.todo);
   }
 
   removeTodo() {

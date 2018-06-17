@@ -9,7 +9,8 @@
     >
     <mat-form-field class="example-full-width">
       <input
-              matInput placeholder="What you need to do today?"
+              matInput
+              placeholder="What you need to do today?"
               [(ngModel)]="title"
               (keyup.enter)="addTodo()"
               name="newTodo"
@@ -24,7 +25,13 @@
              color="accent"
              (click)="addTodo()"
      >Add new Task</button>
-     <button class="clear" type="submit" mat-button color="accent">Clear</button>
+     <button
+             class="clear"
+             type="submit"
+             mat-button
+             color="accent"
+             (click)="clear()"
+     >Clear</button>
     </div>
 </form>
 </section>

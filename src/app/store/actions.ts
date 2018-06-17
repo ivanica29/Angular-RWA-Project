@@ -5,6 +5,7 @@ import {Update} from '@ngrx/entity';
 export const ADD_TODO = 'Add todo';
 export const DELETE_TODO = 'Delete todo';
 export const CHANGE_DONE = 'Change done';
+export const DELETE_ALL = 'Delete all';
 
 export class AddTodo implements Action {
   type = ADD_TODO;
@@ -33,4 +34,8 @@ export class ChangeDone implements Action {
       }
     };
   }
+}
+
+export class DeleteAll implements Action {
+  type = DELETE_ALL;
 }

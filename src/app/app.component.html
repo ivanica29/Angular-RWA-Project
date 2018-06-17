@@ -7,9 +7,18 @@
     fxLayout="column"
     fxLayoutAlign="center center"
     >
-        <h1>
-            Your Tasks!
-        </h1>
+        <div fxLayout="row">
+            <h1>
+                Your Tasks!
+            </h1>
+            <button
+                    class="delete-all"
+                    mat-raised-button
+                    color="accent"
+                    (click)="deleteAll()"
+            >Delete all tasks!</button>
+        </div>
+
         <app-todo-list></app-todo-list>
     </div>
 

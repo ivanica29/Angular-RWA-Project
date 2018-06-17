@@ -18,7 +18,11 @@ export class TodoNewComponent implements OnInit {
   }
 
   addTodo() {
-    this.todoService.addTodo({ title: this.title, done: false });
+    this.todoService.addTodo({ id: null, title: this.title, done: false });
+  }
+
+  clear() {
+    this.title = '';
   }
 
 }

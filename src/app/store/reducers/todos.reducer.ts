@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Todo } from '../../models/todo';
-import {ADD_TODO, AddTodo, CHANGE_DONE, DELETE_TODO, DeleteTodo, ChangeDone} from '../actions';
+import {ADD_TODO, AddTodo, CHANGE_DONE, DELETE_TODO, DeleteTodo, ChangeDone, DELETE_ALL} from '../actions';
 import {EntityState, EntityAdapter, createEntityAdapter} from '@ngrx/entity';
 
 export interface State extends EntityState<Todo> {
@@ -23,6 +23,9 @@ export default function (state = initialState, action: Action) {
     case CHANGE_DONE: {
       const {todo} = action as ChangeDone;
       return adapter.updateOne(todo, state);
+    }
+    case DELETE_ALL: {
+      return adapter.removeAll(state);
     }
   }
 }

@@ -12,4 +12,12 @@ mat-sidenav {
   width: 550px;
   color: #19191b;
   padding-bottom: 20px;
+  padding-top: 30px;
+}
+
+.delete-all {
+  margin-top: 10px;
+  float: right;
+  height: 40px;
+  margin-left: 140px;
 }

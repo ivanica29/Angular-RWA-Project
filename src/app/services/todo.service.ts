@@ -1,14 +1,15 @@
 import {Todo} from '../models/todo';
 import { Store} from '@ngrx/store';
 import {State} from '../store';
-import {AddTodo, DeleteTodo, ChangeDone} from '../store/actions';
+import {AddTodo, DeleteTodo, ChangeDone, DeleteAll} from '../store/actions';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
+import {EntityState} from '@ngrx/entity';
 
 @Injectable()
 export class TodoService {
 
-  todos$: Observable<Todo[]>;
+  todos$: Observable<EntityState<Todo>>;
 
   constructor(private store$: Store<State>) {
     this.todos$ = this.store$.select(state => state.todos);
@@ -28,5 +29,9 @@ export class TodoService {
 
   changeDone(todo: Todo, done: boolean) {
     this.store$.dispatch(new ChangeDone(todo, done));
+  }
+
+  deleteAll() {
+    this.store$.dispatch(new DeleteAll());
   }
 }
