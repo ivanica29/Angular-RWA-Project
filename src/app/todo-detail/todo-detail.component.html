@@ -1,5 +1,18 @@
-<section>
-  <div *ngIf="todo != null">
-    <h3> {{ todo.title }}</h3>
+<section class="todo">
+  <div *ngIf="todo != null" class="title">
+    <h3 [class.done]="todo.done"> {{ todo.title }}</h3>
+  </div>
+  <div class="chck">
+    <mat-checkbox
+            (change)="changeDone($event)"
+    >
+    </mat-checkbox>
+    <button
+            mat-icon-button
+            color="accent"
+            (click)="removeTodo()"
+    >
+      <mat-icon>delete_forever</mat-icon>
+    </button>
   </div>
 </section>

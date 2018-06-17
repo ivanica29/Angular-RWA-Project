@@ -1,0 +1,22 @@
+.todo {
+    display: table !important;
+    width: 400px;
+    border-bottom: 1px solid #dddddd;
+
+}
+
+.title {
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.chck {
+    display: inline-block;
+    float: right;
+    padding-top: 20px;
+}
+
+.done {
+    text-decoration: line-through;
+}

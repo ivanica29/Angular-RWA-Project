@@ -1,7 +1,7 @@
 import {Todo} from '../models/todo';
 import { Store} from '@ngrx/store';
 import {State} from '../store';
-import {AddTodo} from '../store/actions';
+import {AddTodo, DeleteTodo, ChangeDone} from '../store/actions';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 
@@ -16,5 +16,13 @@ export class TodoService {
 
   addTodo(todo: Todo) {
     this.store$.dispatch(new AddTodo(todo));
+  }
+
+  deleteTodo(todo: Todo) {
+    this.store$.dispatch(new DeleteTodo(todo));
+  }
+
+  changeDone(todo: Todo, done: boolean) {
+    this.store$.dispatch(new ChangeDone(todo, done));
   }
 }

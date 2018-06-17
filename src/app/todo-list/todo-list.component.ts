@@ -19,7 +19,7 @@ export class TodoListComponent implements OnInit {
     console.log(this.todoService.todos$);
     this.todoService.todos$.subscribe(todo => {
       this.todos = todo;
-      console.log("asd");
+      console.log(todo);
     });
   }
 
