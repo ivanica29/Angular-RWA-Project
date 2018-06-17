@@ -1,0 +1,30 @@
+<section
+  fxLayoutAlign="center">
+  <form
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          fxLayoutGap="10px"
+          class="form"
+          #f="ngForm"
+    >
+    <mat-form-field class="example-full-width">
+      <input
+              matInput placeholder="What you need to do today?"
+              [(ngModel)]="newTodo.title"
+              (keyup.enter)="addTodo()"
+              name="newTodo"
+      >
+    </mat-form-field>
+    <div
+      fxLayout="row"
+    >
+     <button
+             type="submit"
+             mat-raised-button
+             color="accent"
+             (click)="addTodo()"
+     >Add new Task</button>
+     <button class="clear" type="submit" mat-button color="accent">Clear</button>
+    </div>
+</form>
+</section>

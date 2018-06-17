@@ -1,0 +1,14 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+  height: 100%;
+}
+
+mat-sidenav {
+  width: 250px;
+}
+
+.tasks {
+  margin-top: 20px;
+  background-color: white;
+  width: 550px;
+  color: #19191b;
+}

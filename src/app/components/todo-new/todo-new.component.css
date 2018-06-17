@@ -1,0 +1,13 @@
+mat-form-field {
+    width: 300px;
+}
+
+.form {
+    background-color: white;
+    width: 550px;
+    height: 200px;
+}
+
+.clear {
+    margin-left: 5px;
+}
