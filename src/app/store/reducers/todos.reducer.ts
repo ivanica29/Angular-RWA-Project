@@ -1,31 +1,28 @@
 import { Action } from '@ngrx/store';
-import {Todo} from '../../models/todo';
+import { Todo } from '../../models/todo';
 import {ADD_TODO, AddTodo, CHANGE_DONE, DELETE_TODO, DeleteTodo, ChangeDone} from '../actions';
+import {EntityState, EntityAdapter, createEntityAdapter} from '@ngrx/entity';
 
-const initialState: Todo[] = [
-];
+export interface State extends EntityState<Todo> {
+}
 
-export default function (state: Todo[] = initialState, action: Action) {
+export const adapter: EntityAdapter<Todo> = createEntityAdapter<Todo>();
+
+export const initialState: State = adapter.getInitialState({});
+
+export default function (state = initialState, action: Action) {
   switch (action.type) {
     case ADD_TODO: {
       const {todo} = action as AddTodo;
-      return [...state, todo];
+      return adapter.addOne(todo, state);
     }
     case DELETE_TODO: {
       const {todo} = action as DeleteTodo;
-      return state.filter( item => {
-        console.log(todo);
-        return item.title !== todo.title;
-      });
+      return adapter.removeOne(todo.id, state);
     }
     case CHANGE_DONE: {
-      const {todo, done} = action as ChangeDone;
-      return state.map( item => {
-        if (item.title === todo.title) {
-          item.done = done;
-        }
-        return item;
-      });
+      const {todo} = action as ChangeDone;
+      return adapter.updateOne(todo, state);
     }
   }
 }

@@ -15,6 +15,10 @@ export class TodoService {
   }
 
   addTodo(todo: Todo) {
+    todo = {
+      ...todo,
+      id: + new Date()
+    };
     this.store$.dispatch(new AddTodo(todo));
   }
 

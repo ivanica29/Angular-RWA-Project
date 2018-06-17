@@ -11,9 +11,11 @@ export class TodoDetailComponent implements OnInit {
 
   @Input() public todo: Todo;
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService) {
+  }
 
   ngOnInit() {
+    console.log(this.todo);
   }
 
   removeTodo() {

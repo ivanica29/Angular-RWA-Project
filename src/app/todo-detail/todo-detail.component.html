@@ -4,6 +4,7 @@
   </div>
   <div class="chck">
     <mat-checkbox
+            [(ngModel)]="todo.done"
             (change)="changeDone($event)"
     >
     </mat-checkbox>

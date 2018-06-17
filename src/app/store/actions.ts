@@ -1,5 +1,6 @@
 import {Action} from '@ngrx/store';
 import {Todo} from '../models/todo';
+import {Update} from '@ngrx/entity';
 
 export const ADD_TODO = 'Add todo';
 export const DELETE_TODO = 'Delete todo';
@@ -23,10 +24,13 @@ export class DeleteTodo implements Action {
 
 export class ChangeDone implements Action {
   type = CHANGE_DONE;
-  done: boolean;
-  todo: Todo;
+  todo: Update<Todo>;
   constructor(todo: Todo, done: boolean) {
-    this.todo = {...todo};
-    this.done = done;
+    this.todo = {
+      id: todo.id,
+      changes: {
+        done
+      }
+    };
   }
 }

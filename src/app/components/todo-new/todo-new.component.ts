@@ -9,17 +9,16 @@ import {TodoService} from '../../services/todo.service';
 })
 export class TodoNewComponent implements OnInit {
 
-  @Input() public newTodo: Todo;
+  @Input() public title: string;
 
   constructor(private todoService: TodoService) {
   }
 
   ngOnInit() {
-    this.newTodo = new Todo();
   }
 
   addTodo() {
-    this.todoService.addTodo(this.newTodo);
+    this.todoService.addTodo({ title: this.title, done: false });
   }
 
 }

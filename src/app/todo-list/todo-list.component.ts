@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoService} from '../services/todo.service';
 import {Todo} from '../models/todo';
+import {logging} from 'selenium-webdriver';
 
 @Component({
   selector: 'app-todo-list',
@@ -16,10 +17,12 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.todoService.todos$);
     this.todoService.todos$.subscribe(todo => {
-      this.todos = todo;
-      console.log(todo);
+      if (!todo) {
+        return;
+      }
+      const {entities} = todo;
+      this.todos = Object.values(entities);
     });
   }
 
